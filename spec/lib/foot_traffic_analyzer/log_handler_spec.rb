@@ -10,18 +10,16 @@ module FootTrafficAnalyzer
         expect(log_handler.file).to eq(file)
       end
 
-      it "should give error without file" do
-        expect(LogHandler.new).to raise_exception
-      end
     end
 
     describe "get_lines" do
-      it "should give five lines" do
-        expect(log_handler.get_lines).size.to eq(4)
+      it "should give 4 lines and total_lines" do
+        expect(log_handler.get_lines.size).to eq(4)
+        expect(log_handler.total_lines).to eq(4)
       end
 
       it "should give 0 lines" do
-        expect(LogHandler.new("dummy.txt").get_lines).size.to eq(0)
+        expect(LogHandler.new("dummy.txt").get_lines.size).to eq(0)
       end
     end
 
